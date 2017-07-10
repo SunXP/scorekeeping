@@ -6,6 +6,7 @@ var p1Score = 0;
 var p2Score = 0;
 var gameOver = false;
 var winningScore = 5;
+var resetButton = document.querySelector("#reset");
 
 p1Button.addEventListener("click", function(){
 	if(!gameOver){
@@ -33,3 +34,10 @@ p2Button.addEventListener("click", function(){
 	
 });
 
+resetButton.addEventListener("click", function(){
+	p1Score=0;
+	p2Score=0;
+	p1Display.textContent = p1Score;
+	p2Display.textContent = p2Score;
+	gameOver = false;
+});
