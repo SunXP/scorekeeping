@@ -6,7 +6,9 @@ var p1Score = 0;
 var p2Score = 0;
 var gameOver = false;
 var winningScore = 5;
+var winningScoreDisplay = document.querySelector("#winningScoreDisplay");
 var resetButton = document.querySelector("#reset");
+var numInput = document.querySelector("input");
 
 p1Button.addEventListener("click", function(){
 	if(!gameOver){
@@ -35,9 +37,22 @@ p2Button.addEventListener("click", function(){
 });
 
 resetButton.addEventListener("click", function(){
+	reset();
+});
+
+numInput.addEventListener("change", function(){
+	winningScore = Number(numInput.value);
+	winningScoreDisplay.textContent = Number(numInput.value);
+	reset();
+
+});
+
+function reset(){
 	p1Score=0;
 	p2Score=0;
 	p1Display.textContent = p1Score;
 	p2Display.textContent = p2Score;
+	p1Display.classList.remove("winner");
+	p2Display.classList.remove("winner");
 	gameOver = false;
-});
+}
